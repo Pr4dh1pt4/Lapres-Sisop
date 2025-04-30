@@ -1,6 +1,5 @@
 # Lapres-Sisop
 
----
 
 ## 🧠 Penjelasan Fungsi
 
