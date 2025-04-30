@@ -23,6 +23,8 @@ Mencatat pesan ke file `log.txt` disertai timestamp (jam-menit-detik). Digunakan
           fclose(log);
       }
   ```
+- Fungsi ini mencatat pesan log ke dalam file log.txt dengan timestamp (jam:menit:detik).
+- Fungsi ini membantu dalam debugging dan pelacakan aktivitas program (misal: saat proses pengelompokan film berlangsung).
 
 ### 📄 `parse_csv_line(char* line, char** fields, int max_fields)`
 Memecah satu baris CSV menjadi array `fields`. Mengabaikan tanda kutip dan menghapus karakter newline. Digunakan oleh proses parsing CSV.
@@ -52,6 +54,8 @@ Memecah satu baris CSV menjadi array `fields`. Mengabaikan tanda kutip dan mengh
         }
     }
   ```
+- Memecah satu baris CSV menjadi array fields berdasarkan koma, memperhatikan kutipan ganda (").
+- Fungsi ini digunakan untuk mengurai data dalam file CSV, seperti Title, Director, Country, dan Year.
 
 ### 📄 `int extract_zip()`
 
@@ -118,7 +122,7 @@ Memecah satu baris CSV menjadi array `fields`. Mengabaikan tanda kutip dan mengh
 ---
 
 ### 📄 `void delete_zip()`
-Menghapus file ZIP setelah diekstrak untuk menghemat penyimpanan.
+- Fungsi ini akan menghapus file ZIP setelah diekstrak untuk menghemat penyimpanan.
 
   ```c
     void delete_zip() {
@@ -141,7 +145,6 @@ Menghapus file ZIP setelah diekstrak untuk menghemat penyimpanan.
         pthread_exit(NULL);
     }
   ```
-Thread utama untuk:
 - Menjalankan fungsi ekstraksi ZIP (`extract_zip`)
 - Menghapus ZIP setelah selesai (`delete_zip`)
 - Menampilkan status ke layar
@@ -154,6 +157,8 @@ Anthony ingin mengelompokkan film-filmnya dengan dua cara yang sangat mudah:
 2. Berdasarkan tahun rilis (release year).
 
 ### 📄 `void* group_by_abjad(void* arg)`
+- Fungsi ini mengelompokkan film berdasarkan huruf pertama judul. Hasil disimpan dalam folder judul/ sesuai abjad atau simbol (#).
+  
   ```c
     void* group_by_abjad(void* arg) {
         FILE* f = fopen(CSV_FILE, "r");
@@ -207,6 +212,8 @@ Thread untuk mengelompokkan film berdasarkan huruf awal judul:
 ---
 
 ### 📄 `void* group_by_year(void* arg)`
+- Fungsi ini mengelompokkan film berdasarkan tahun rilis dan menyimpannya ke dalam folder tahun/<year>.txt.
+  
   ```c
     void* group_by_year(void* arg) {
         FILE* f = fopen(CSV_FILE, "r");
@@ -253,6 +260,7 @@ Thread untuk mengelompokkan film berdasarkan tahun:
 ---
 
 ### 📄 `void* menu_group(void* arg)`
+
   ```c
     void* menu_group(void* arg) {
         pthread_t t1, t2;
@@ -264,8 +272,7 @@ Thread untuk mengelompokkan film berdasarkan tahun:
         pthread_exit(NULL);
     }
   ```
-Thread gabungan yang:
-- Membuat dua thread: `group_by_abjad` dan `group_by_year`
+- Fungsi ini membuat dua thread: `group_by_abjad` dan `group_by_year`
 - Menunggu hingga keduanya selesai (`pthread_join`)
 - Memberi pesan status ke pengguna
 
@@ -275,6 +282,8 @@ Thread gabungan yang:
 Anthony ingin mengetahui statistik lebih mendalam tentang film-film yang dia koleksi. Misalnya, dia ingin tahu berapa banyak film yang dirilis *sebelum tahun 2000* dan *setelah tahun 2000*
 
 ### 📄 `void* generate_report(void* arg)`
+- Fungsi ini digunakan untuk membuat laporan statistik jumlah film berdasarkan Country, dibedakan antara film sebelum tahun 2000 dan setelah tahun 2000.
+  
   ```c
     void* generate_report(void* arg) {
         FILE* f = fopen(CSV_FILE, "r");
