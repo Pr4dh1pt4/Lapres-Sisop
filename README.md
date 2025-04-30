@@ -10,11 +10,11 @@ Anthony ingin semuanya serba instan dengan hanya satu perintah. Dengan satu peri
 - Mengekstrak file ZIP tersebut ke dalam folder yang sudah terorganisir.
 - Menghapus file ZIP yang sudah tidak diperlukan lagi, supaya tidak memenuhi penyimpanan.
   
-  ### 📄 `log_message(const char* message)`
-  Mencatat pesan ke file `log.txt` disertai timestamp (jam-menit-detik). Digunakan untuk mencatat proses penting seperti pengelompokan film.
+### 📄 `log_message(const char* message)`
+Mencatat pesan ke file `log.txt` disertai timestamp (jam-menit-detik). Digunakan untuk mencatat proses penting seperti pengelompokan film.
   
-    ```c
-      void log_message(const char* message) {
+  ```c
+    void log_message(const char* message) {
           FILE* log = fopen("log.txt", "a");
           if (!log) return;
       
@@ -23,7 +23,7 @@ Anthony ingin semuanya serba instan dengan hanya satu perintah. Dengan satu peri
           fprintf(log, "[%02d:%02d:%02d] %s\n", t->tm_hour, t->tm_min, t->tm_sec, message);
           fclose(log);
       }
-    ```
+  ```
 
 ### 📄 `parse_csv_line(char* line, char** fields, int max_fields)`
 Memecah satu baris CSV menjadi array `fields`. Mengabaikan tanda kutip dan menghapus karakter newline. Digunakan oleh proses parsing CSV.
