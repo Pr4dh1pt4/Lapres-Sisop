@@ -1,4 +1,4 @@
-# Lapres-Sisop
+# LAPRES SISOP TASK ANTHONY
 
 
 ## 🧠 Penjelasan Fungsi
@@ -157,6 +157,14 @@ Memecah satu baris CSV menjadi array `fields`. Mengabaikan tanda kutip dan mengh
 
 ---
 
+**Menjalankan menu program pertama**
+![Screenshot from 2025-04-30 20-20-47](https://github.com/user-attachments/assets/cd43a18b-f7fd-4852-ba97-e9ccb7b6a02a)
+
+**File ZIP setelah diekstrak dan dihapus dari direktori** 
+![Screenshot from 2025-04-30 20-22-22](https://github.com/user-attachments/assets/393fbcba-a491-44be-b8ca-0bc5580e3358)
+
+---
+
 # 2️⃣ B
 Anthony ingin mengelompokkan film-filmnya dengan dua cara yang sangat mudah:
 1. Berdasarkan huruf pertama dari judul film.
@@ -286,6 +294,17 @@ Thread untuk mengelompokkan film berdasarkan tahun:
 
 ---
 
+**Menjalankan menu program kedua**
+![Screenshot from 2025-04-30 20-21-07](https://github.com/user-attachments/assets/5f451181-2f30-4618-a9db-e8c162d2cb33)
+
+**Membuat folder judul setelah judul film dikelompokkan menjadi satu**
+![Screenshot from 2025-04-30 20-22-43](https://github.com/user-attachments/assets/3d43cfe3-d5f0-482f-b187-be8e8fefd6a3)
+
+**Membuat folder tahun setelah tahun rilis film dikelompokkan menjadi satu**
+![Screenshot from 2025-04-30 20-22-58](https://github.com/user-attachments/assets/a53c37b3-993e-489d-aaff-017aa1e85c51)
+
+---
+
 # 2️⃣ C
 Anthony ingin mengetahui statistik lebih mendalam tentang film-film yang dia koleksi. Misalnya, dia ingin tahu berapa banyak film yang dirilis *sebelum tahun 2000* dan *setelah tahun 2000*
 
@@ -382,3 +401,13 @@ Thread yang menghasilkan laporan statistik:
         pthread_exit(NULL);
     }
   ```
+
+---
+
+**Menjalankan menu program ketiga**
+![Screenshot from 2025-04-30 20-21-20](https://github.com/user-attachments/assets/fe26b57d-3486-4554-bc98-7777f75af0bc)
+
+**Membuat file report.txt untuk membuat laporan tentang asal negara film dan juga rilis sebelum/setelah tahun 2000**
+![Screenshot from 2025-04-30 20-23-49](https://github.com/user-attachments/assets/c2dcaaa1-022a-44d9-85d0-b8764773df04)
+
+---
